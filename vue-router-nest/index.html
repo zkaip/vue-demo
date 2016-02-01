@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>嵌套路由</title>
+</head>
+<body>
+  <div id="app">
+    <h3>Hello Vue</h3>
+    <p>
+      <a v-link="{path: '/foo'}">Go to Foo</a>
+      <a v-link="{path: '/foo/bar'}">Go to Foo/Bar</a>
+      <a v-link="{path: '/foo/baz'}">Go to Foo/Baz</a>
+    </p>
+    <router-view></router-view>
+  </div>
+  <script src="http://cdn.bootcss.com/vue/1.0.15/vue.js"></script>
+  <script src="http://cdn.bootcss.com/vue-router/0.7.10/vue-router.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
