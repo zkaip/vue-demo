@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Markdown</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div id="editor">
+    <textarea v-model="input" debounce="3000"></textarea>
+    <div v-html="input | marked"></div>
+  </div>
+  <script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+  <script src="https://cdn.bootcss.com/marked/0.3.5/marked.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
