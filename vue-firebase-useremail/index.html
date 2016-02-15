@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+  <meta charset="UTF-8">
+  <title>Validate User And Email</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li class="user" v-for="user in users" transition>
+        <span>{{user.name}} - {{user.email}}</span>
+        <button v-on:click="removeUser(user)">X</button>
+      </li>
+    </ul>
+    <form id="form" v-on:submit.prevent="addUser">
+      <input type="text" v-model="newUser.name" placeholder="name">
+      <input type="text" v-model="newUser.email" placeholder="email">
+      <input type="submit" value="Add User">
+    </form>
+    <ul class="errors">
+      <li v-show="!validation.name">姓名不能为空</li>
+      <li v-show="!validation.email">请提供正确的email地址</li>
+    </ul>
+  </div>
+  <script src="http://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+  <script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
