@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Tree View</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <p>(You can double click on an item to turn it into a folder.)</p>
+  <ul id="demo">
+    <item class="item" :model="treeData"></item>
+  </ul>
+  <script src="https://cdn.bootcss.com/vue/1.0.16/vue.js"></script>
+  <script type="text/x-template" id="item-template">
+    <li>
+      <div :class="{bold: isFolder}"
+           @click="toggle"
+           @dbclick="changeType">
+        {{model.name}}
+        <span v-if="isFolder">[{{open?'-':'+'}}]</span>
+      </div>
+      <ul v-show="open" v-if="isFolder">
+        <item class="item"
+              v-for="model in model.children"
+              :model="model">
+        </item>
+        <li @click="addChild">+</li>
+      </ul>
+    </li>
+  </script>
+  <script src="index.js"></script>
+</body>
+</html>
